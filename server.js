@@ -5,16 +5,9 @@ import routes from './routes/files';
 import show from './routes/show';
 import download from './routes/download';
 import path from 'path';
-import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 5000;
-
-// cors
-const corsOption = {
-    origin: process.env.ALLOWED_CLIENTS.split(',')
-}
-app.use(cors(corsOption));
 
 // template engine // work with render 
 // set 'view engines' as 'ejs' // set path for 'views folder'
