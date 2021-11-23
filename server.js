@@ -30,7 +30,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 // middlewares, routes
-app.use('/api/files',routes);
+app.use('/files',routes);
 app.use('/files',show);
 app.use('/files/download',download);
 

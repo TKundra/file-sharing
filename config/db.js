@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-// online db connections
+// db connections
 function connectDB(url){
     mongoose.connect(url);
     const connection = mongoose.connection;

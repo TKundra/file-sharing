@@ -10,10 +10,10 @@ import template from '../services/emailTemplate';
 // save files coming from client side to uploads/ folder at server side
 let storage = multer.diskStorage({
     destination: (req, file, callback) => 
-        callback(null, 'uploads/'), // err, destination to store
+        callback(null, 'uploads/'), // (err, destination to store)
     filename: (req, file, callback) => {
         const uniqueName = `${Date.now()}-${Math.round(Math.random()*1E9)}${path.extname(file.originalname)}`; // extname - extension name
-        callback(null, uniqueName); // err, unique name of file
+        callback(null, uniqueName); // (err, unique name of file)
     }
 })
 
@@ -43,12 +43,13 @@ router.post('/', (req, res) => {
             size: req.file.size
         });
         const response = await file.save(); // save to db
+        // return redirect to save/download page
         return res.json({file: `${process.env.APP_BASE_URL}/files/${response.uuid}`}); // response -> download link i.e http://localhost:3000/files/43545fvhqf6-fdhbvdyhg7a
     });
 
 });
 
-// sen email
+// send email
 router.post('/send', async (req, res) => {
     const {uuid, emailTo, emailFrom, subject, name} = req.body;
     // validate

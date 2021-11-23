@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "serve": "node server",
+    "server": "node server",
+    "start": "node start",
     "dev": "nodemon -r esm server"
   },
   "keywords": [],
